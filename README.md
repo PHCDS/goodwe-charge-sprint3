@@ -2,7 +2,7 @@
 
 Protótipo funcional de gestão de carregadores de veículos elétricos, com monitoramento remoto do nível de bateria, parada de carregamento à distância e priorização de energia solar.
 
-Vídeo da demonstração: [COLAR O LINK DO YOUTUBE AQUI]
+Vídeo da demonstração:
 
 ## Equipe
 
@@ -15,7 +15,7 @@ Vídeo da demonstração: [COLAR O LINK DO YOUTUBE AQUI]
 | Pedro Santos | 571017 |
 | Victor Binot | 571499 |
 
-Turma 1CC. O time trabalhou em Scrum, com as entregas divididas nas três sprints da disciplina.
+Turma 1CC. 
 
 ## O que o sistema faz
 
