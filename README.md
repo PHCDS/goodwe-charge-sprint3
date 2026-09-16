@@ -3,12 +3,11 @@
 Sistema de gestão de carregadores de veículos elétricos com monitoramento remoto,
 interrupção de carga à distância e priorização de energia solar.
 
-Sprint 3 — Prototipagem Funcional e Integração. Turma 1CC, FIAP.
+Sprint 3 — Prototipagem Funcional e Integração. Turma 1CCPI, FIAP.
 
 Vídeo da demonstração: (link)
 Site publicado: https://goodwe23.vercel.app/
-Projeto no Wokwi: (link)
-
+Projeto no Wokwi: https://wokwi.com/projects/475083566496759809
 ## Equipe
 
 | Nome | RM |
