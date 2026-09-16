@@ -99,7 +99,7 @@ horario,carregador,bateria,solar_kw,fonte,status,kwh_acumulado
 2026-09-08 20:15:26,CHG-01,81,1.2,rede,parado,2.10
 ```
 
-> Substituir esses números pelos da gravação de vocês. É só rodar o `ponte_mqtt.py` durante a demonstração e copiar o resumo que ele imprime no fim.
+
 
 ## Conexão com os conteúdos das disciplinas
 
