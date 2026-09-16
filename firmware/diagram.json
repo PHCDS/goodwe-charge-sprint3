@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Grupo GoodWe Charge - 1CC",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potBateria", "top": -120, "left": -180, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potSolar", "top": 20, "left": -180, "attrs": {} },
+    { "type": "wokwi-led", "id": "ledVerde", "top": -100, "left": 200, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledVermelho", "top": -20, "left": 200, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -100, "left": 140, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": -20, "left": 140, "attrs": { "value": "220" } },
+    { "type": "wokwi-pushbutton", "id": "botao", "top": 120, "left": 180, "attrs": { "color": "blue" } }
+  ],
+  "connections": [
+    [ "potBateria:VCC", "esp:3V3", "red", [] ],
+    [ "potBateria:GND", "esp:GND.1", "black", [] ],
+    [ "potBateria:SIG", "esp:D34", "green", [] ],
+
+    [ "potSolar:VCC", "esp:3V3", "red", [] ],
+    [ "potSolar:GND", "esp:GND.1", "black", [] ],
+    [ "potSolar:SIG", "esp:D35", "green", [] ],
+
+    [ "esp:D2", "r1:1", "green", [] ],
+    [ "r1:2", "ledVerde:A", "green", [] ],
+    [ "ledVerde:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:D4", "r2:1", "red", [] ],
+    [ "r2:2", "ledVermelho:A", "red", [] ],
+    [ "ledVermelho:C", "esp:GND.2", "black", [] ],
+
+    [ "botao:1.l", "esp:D15", "blue", [] ],
+    [ "botao:2.l", "esp:GND.3", "black", [] ]
+  ],
+  "dependencies": {}
+}
