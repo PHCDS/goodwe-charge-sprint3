@@ -1,12 +1,10 @@
 // GoodWe Charge - Sprint 3
 // Carregador de carro eletrico simulado no Wokwi (ESP32)
-// Publica o status via MQTT e obedece comandos de parada vindos do painel
 
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-// ---------- configuracoes ----------
-const char* SSID   = "Wokwi-GUEST";   // rede do simulador
+const char* SSID   = "Wokwi-GUEST";   
 const char* SENHA  = "";
 const char* BROKER = "broker.hivemq.com";
 const int   PORTA  = 1883;
@@ -15,16 +13,15 @@ const char* ID_CARREGADOR  = "CHG-01";
 const char* TOPICO_STATUS  = "goodwe/fiap1cc/carregador01/status";
 const char* TOPICO_COMANDO = "goodwe/fiap1cc/carregador01/comando";
 
-// pinos
-const int PINO_BATERIA   = 34;  // potenciometro 1
-const int PINO_SOLAR     = 35;  // potenciometro 2
-const int LED_CARREGANDO = 2;   // verde
-const int LED_PARADO     = 4;   // vermelho
-const int BOTAO          = 15;  // plugue conectado
+const int PINO_BATERIA   = 34;  
+const int PINO_SOLAR     = 35;  
+const int LED_CARREGANDO = 2;   
+const int LED_PARADO     = 4;   
+const int BOTAO          = 15;  
 
-// regras
-const float POTENCIA_KW    = 7.4;  // wallbox AC comum
-const float SOLAR_MINIMO   = 1.5;  // abaixo disso a energia vem da rede
+
+const float POTENCIA_KW    = 7.4;  
+const float SOLAR_MINIMO   = 1.5; 
 const int   INTERVALO_MS   = 2000;
 
 WiFiClient wifi;
@@ -45,7 +42,6 @@ void conectarWiFi() {
   Serial.println(" ok");
 }
 
-// chamada toda vez que chega um comando do painel ou do script Python
 void aoReceberComando(char* topico, byte* mensagem, unsigned int tamanho) {
   String texto = "";
   for (unsigned int i = 0; i < tamanho; i++) {
@@ -86,8 +82,7 @@ int lerBateria() {
 
 float lerSolar() {
   int leitura = analogRead(PINO_SOLAR);
-  return map(leitura, 0, 4095, 0, 100) / 10.0;  // 0 a 10 kW
-}
+  return map(leitura, 0, 4095, 0, 100) / 10.0;  
 
 void verificarBotao() {
   if (digitalRead(BOTAO) == LOW && millis() - ultimoBotao > 400) {
@@ -145,7 +140,6 @@ void loop() {
   int bateria = lerBateria();
   float solar = lerSolar();
 
-  // bateria cheia encerra a carga sem depender do painel
   if (bateria >= 100) {
     carregando = false;
   }
