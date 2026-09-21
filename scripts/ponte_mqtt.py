@@ -2,8 +2,6 @@
 GoodWe Charge - Sprint 3
 Recebe o status do carregador pelo MQTT, guarda o historico da sessao em CSV
 e manda parar o carregamento quando a bateria chega no limite.
-
-Instalar antes: pip install paho-mqtt
 """
 
 import csv
@@ -18,11 +16,10 @@ PORTA = 1883
 TOPICO_STATUS = "goodwe/fiap1cc/carregador01/status"
 TOPICO_COMANDO = "goodwe/fiap1cc/carregador01/comando"
 
-LIMITE_BATERIA = 80          # a partir daqui o script manda parar sozinho
+LIMITE_BATERIA = 80         
 ARQUIVO_CSV = "dados/sessoes.csv"
 ARQUIVO_JSON = "dados/status.json"
 
-# guarda o que precisa sobreviver entre uma mensagem e outra
 sessao = {
     "kwh": 0.0,
     "ultima_hora": None,
@@ -111,7 +108,6 @@ def ao_receber(cliente, userdata, mensagem):
         round(sessao["kwh"], 3),
     ))
 
-    # automacao: acima do limite a carga para sem ninguem clicar em nada
     if dados["bateria"] >= LIMITE_BATERIA and dados["status"] == "carregando":
         cliente.publish(TOPICO_COMANDO, json.dumps({"acao": "parar", "motivo": "limite"}))
         print(">> bateria em {}%, comando de parada enviado".format(dados["bateria"]))
