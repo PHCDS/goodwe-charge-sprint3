@@ -5,7 +5,7 @@ interrupção de carga à distância e priorização de energia solar.
 
 Sprint 3 — Prototipagem Funcional e Integração. Turma 1CCPI, FIAP.
 
-Vídeo da demonstração: (link)
+Vídeo da demonstração:https://www.youtube.com/watch?v=6EZr9NP7bIc
 Site publicado: https://goodwe23.vercel.app/
 Projeto no Wokwi: https://wokwi.com/projects/475083566496759809
 ## Equipe
